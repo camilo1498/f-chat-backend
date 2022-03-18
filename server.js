@@ -48,9 +48,7 @@ users(app, upload);
 chats(app);
 messages(app, upload);
 
-server.listen(3000, '192.168.0.12' || 'localhost', function(){
-    console.log('flutter chat_app ' + process.pid + ' initialize...');
-});
+server.listen(port);
 
 
 /*ERROR HANDLER*/
