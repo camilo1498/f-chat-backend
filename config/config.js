@@ -15,7 +15,8 @@ const databaseConfig = {
     'port': 5432,
     'database': 'd3f3qbbcp370ng',
     'user': 'xfbmjofzawahpj',
-    'password': 'c194cca6a69cc082bc74dfff05ca8b2b72d253bc2e23443a2fb219bbe2ff860f'
+    'password': 'c194cca6a69cc082bc74dfff05ca8b2b72d253bc2e23443a2fb219bbe2ff860f',
+    'ssl': {rejectUnauthorized: false}
 };
 
 const db = pgp(databaseConfig);

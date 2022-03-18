@@ -4,9 +4,7 @@
   "description": "Backend de la aplicacion delivery",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "flutter",

@@ -17,7 +17,7 @@ const users = require('./routes/usersRoutes');
 const chats = require('./routes/chatsRoutes');
 const messages = require('./routes/messagesRoutes');
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 app.use(logger('dev'));
 app.use(express.json());
