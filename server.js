@@ -8,11 +8,15 @@ const multer = require('multer');
 const passport = require('passport');
 const io = require('socket.io')(server);
 
-/*SOCKETS*/ 
+/*
+* SOCKETS
+*/ 
 const chatSocket = require('./sockets/chat_socket');
 
 
-/*RUTAS*/
+/*
+* RUTAS
+*/
 const users = require('./routes/usersRoutes');
 const chats = require('./routes/chatsRoutes');
 const messages = require('./routes/messagesRoutes');
@@ -29,6 +33,7 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// console.log('PASSPORT', passport);
 
 require('./config/passport')(passport);
 
@@ -43,15 +48,20 @@ const upload = multer({
 })
 
 
-/*Route call*/
+/*
+* LLAMANDO A LA RUTAS
+*/
 users(app, upload);
 chats(app);
 messages(app, upload);
 
-server.listen(port);
+//server.listen(port);
+server.listen(3000, '192.168.0.12' || 'localhost', function() {
+    console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')
+});
 
 
-/*ERROR HANDLER*/
+// ERROR HANDLER
 app.use((err, req, res, next) => {
     console.log(err);
     res.status(err.status || 500).send(err.stack);
@@ -61,3 +71,7 @@ module.exports = {
     app: app,
     server: server
 }
+
+// 200 - ES UN RESPUESTA EXITOSA
+// 404 - SIGNIFICA QUE LA URL NO EXISTE
+// 500 - ERROR INTERNO DEL SERVIDOR

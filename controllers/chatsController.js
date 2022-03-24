@@ -12,7 +12,7 @@ module.exports = {
                 console.log('ACTUALIZAR CHAT');
                 await Chat.update(chat);
                 return res.status(201).json({
-                    message: 'The chat has been created successfully',
+                    message: 'El chat se ha creado correctamente',
                     success: true,
                     data: existChat.id
                 });
@@ -22,7 +22,7 @@ module.exports = {
                 const data = await Chat.create(chat);
 
                 return res.status(201).json({
-                    message: 'The chat has been created successfully',
+                    message: 'El chat se ha creado correctamente',
                     success: true,
                     data: data.id
                 });
@@ -31,7 +31,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             return res.status(501).json({
-                message: 'The chat could not be created',
+                message: 'No se pudo crear el chat',
                 success: false,
                 error: error
             });
@@ -49,7 +49,7 @@ module.exports = {
         catch (error) {
             console.log(error);
             return res.status(501).json({
-                message: 'Chats could not be listed',
+                message: 'No se pudo listar los chats',
                 success: false,
                 error: error
             });

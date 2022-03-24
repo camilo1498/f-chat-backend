@@ -10,7 +10,7 @@ module.exports = {
             const data = await Message.create(message);
 
             return res.status(201).json({
-                message: 'The message has been created successfully',
+                message: 'El mensaje se ha creado correctamente',
                 success: true,
                 data: data.id
             });
@@ -18,7 +18,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             return res.status(501).json({
-                message: 'The message could not be created',
+                message: 'No se pudo crear el mensaje',
                 success: false,
                 error: error
             });
@@ -35,7 +35,7 @@ module.exports = {
         } catch (error) {
             console.log(error);
             return res.status(501).json({
-                message: 'Could not read messages',
+                message: 'No se pudo leer los mensajes',
                 success: false,
                 error: error
             });
@@ -46,7 +46,7 @@ module.exports = {
         try {
             
             const message = JSON.parse(req.body.message);
-            console.log(`User Submitted Data: ${message}`);
+            console.log(`Datos enviados del usuario: ${message}`);
 
             const files = req.files;
 
@@ -63,7 +63,7 @@ module.exports = {
             
             return res.status(201).json({
                 success: true,
-                message: 'The message has been created successfully',
+                message: 'El mensaje se ha creado correctamente',
                 data: {
                     'id': data.id,
                     'url': message.url
@@ -75,7 +75,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user registration',
+                message: 'Hubo un error con el registro del usuario',
                 error: error
             });
         }
@@ -98,14 +98,14 @@ module.exports = {
             
                 return res.status(201).json({
                     success: true,
-                    message: 'The message has been created successfully',
+                    message: 'El mensaje se ha creado correctamente',
                     data: data.id
                 });
             }
             else {
                 return res.status(501).json({
                     success: false,
-                    message: 'The video could not be saved'
+                    message: 'No se pudo guardar el video'
                 });
             }
         } 
@@ -113,7 +113,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error creating a new video message',
+                message: 'Hubo un error con la creacion de nuevo mensaje con video',
                 error: error
             });
         }
@@ -125,14 +125,14 @@ module.exports = {
             await Message.updateToSeen(id);
 
             return res.status(201).json({
-                message: 'The message has been updated successfully',
+                message: 'El mensaje se ha actualizado correctamente',
                 success: true
             });
         
         } catch (error) {
             console.log(error);
             return res.status(501).json({
-                message: 'Failed to update message',
+                message: 'No se pudo actualizar el mensaje',
                 success: false,
                 error: error
             });

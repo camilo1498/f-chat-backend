@@ -18,7 +18,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'Error getting users'
+                message: 'Error al obtener los usuarios'
             });
         }
     },
@@ -33,12 +33,12 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'Error getting users'
+                message: 'Error al obtener los usuarios'
             });
         }
     },
 
-    async registerNoPhoto(req, res, next) {
+    async register(req, res, next) {
         try {
             
             const user = req.body;
@@ -47,7 +47,7 @@ module.exports = {
         
             return res.status(201).json({
                 success: true,
-                message: 'Registration was successful',
+                message: 'El registro se realizo correctamente',
                 data: data.id
             });
 
@@ -56,7 +56,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user registration',
+                message: 'Hubo un error con el registro del usuario',
                 error: error
             });
         }
@@ -66,7 +66,7 @@ module.exports = {
         try {
             
             const user = JSON.parse(req.body.user);
-            console.log(`User Submitted Data: ${user}`);
+            console.log(`Datos enviados del usuario: ${user}`);
 
             const files = req.files;
 
@@ -86,7 +86,7 @@ module.exports = {
 
             return res.status(201).json({
                 success: true,
-                message: 'Registration was successful, now log in',
+                message: 'El registro se realizo correctamente, ahora inicia sesion',
                 data: user
             });
 
@@ -95,7 +95,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user registration',
+                message: 'Hubo un error con el registro del usuario',
                 error: error
             });
         }
@@ -105,7 +105,7 @@ module.exports = {
         try {
             
             const user = JSON.parse(req.body.user);
-            console.log(`User Submitted Data: ${user}`);
+            console.log(`Datos enviados del usuario: ${user}`);
 
             const files = req.files;
 
@@ -120,11 +120,11 @@ module.exports = {
 
             await User.update(user);
             
-            console.log('updated user', user);
+            console.log('Usuario actualizado', user);
 
             return res.status(201).json({
                 success: true,
-                message: 'The data update was successful',
+                message: 'La actualizacion de datos se ha realizado correctamente',
                 data: user
             });
 
@@ -133,7 +133,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user update',
+                message: 'Hubo un error con la actualizacion del usuario',
                 error: error
             });
         }
@@ -147,7 +147,7 @@ module.exports = {
         
             return res.status(201).json({
                 success: true,
-                message: 'The user has been successfully updated',
+                message: 'El usuario se ha actualizado correctamente',
                 data: user
             });
 
@@ -156,7 +156,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user update',
+                message: 'Hubo un error con la actualizacion del usuario',
                 error: error
             });
         }
@@ -170,7 +170,7 @@ module.exports = {
         
             return res.status(201).json({
                 success: true,
-                message: 'The token has been successfully updated',
+                message: 'El token se ha actualizado correctamente',
             });
 
         } 
@@ -178,7 +178,7 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the token refresh',
+                message: 'Hubo un error con la actualizacion del token',
                 error: error
             });
         }
@@ -196,7 +196,7 @@ module.exports = {
             if (!myUser) {
                 return res.status(401).json({
                     success: false,
-                    message: 'The email was not found'
+                    message: 'El email no fue encontrado'
                 })
             }
 
@@ -219,7 +219,7 @@ module.exports = {
                 
                 return res.status(201).json({
                     success: true,
-                    message: 'The user has been authenticated',
+                    message: 'El usuario ha sido autenticado',
                     data: data
                 });
 
@@ -228,7 +228,7 @@ module.exports = {
                 // UNAUTHORIZED
                 return res.status(401).json({
                     success: false,
-                    message: 'Password is incorrect',
+                    message: 'La contraseña es incorrecta',
                 });
             }
 
@@ -238,10 +238,12 @@ module.exports = {
             console.log(`Error: ${error}`);
             return res.status(501).json({
                 success: false,
-                message: 'There was an error with the user login',
+                message: 'Hubo un error con el login del usuario',
                 error: error
             });
         }
 
     }
+
+
 };

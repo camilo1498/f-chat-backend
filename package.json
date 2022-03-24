@@ -4,9 +4,7 @@
   "description": "Backend de la aplicacion delivery",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server",
-    "start": "node server"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "flutter",
@@ -28,9 +26,6 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "pg-promise": "^10.10.2",
-    "socket.io": "^4.4.1"
-  },
-  "devDependencies": {
-    "nodemon":" 2.0.15"
+    "socket.io": "^2.4.1"
   }
 }
